@@ -1,0 +1,8 @@
+digraph C {
+graph [rankdir=TB, bgcolor="white", pad=0.2, nodesep=0.35, ranksep=0.4];
+node [shape=record, style="filled", fontname="Arial", fontsize=10, color="#2F5597", fillcolor="#F7FBFF"];
+edge [fontname="Arial", fontsize=9, color="#555555"];
+app [label="{OrderCalculator|+ MIN_QUANTITY : int = 1\l+ MAX_QUANTITY : int = 10000\l+ MAX_UNIT_PRICE : double = 5000000.0\l+ MIN_DISCOUNT : double = 0.0\l+ MAX_DISCOUNT : double = 30.0\l+ VAT_RATE : double = 20.0\l+ FREE_PROCESSING_MIN_QUANTITY : int = 20\l|+ isValid(int, double, double) : boolean\l+ validate(int, double, double) : String\l+ isFreeProcessing(int) : boolean\l+ calculateBase(int, double) : double\l+ applyDiscount(double, double) : double\l+ calculateVat(double, double) : double\l+ calculateTotal(int, double, double, double) : double\l+ formatOrderSummary(int, double, double, double) : String\l+ main(String[]) : void\l}", fillcolor="#F7FBFF", color="#2F5597"];
+check [label="{SelfCheck||+ main(String[]) : void\l}", fillcolor="#F7FBFF", color="#2F5597"];
+check -> app [label="uses", style=dashed, arrowhead=open];
+}

@@ -1,0 +1,12 @@
+digraph C {
+graph [rankdir=TB, bgcolor="white", pad=0.2, nodesep=0.35, ranksep=0.4];
+node [shape=record, style="filled", fontname="Arial", fontsize=10, color="#2F5597", fillcolor="#F7FBFF"];
+edge [fontname="Arial", fontsize=9, color="#555555"];
+r [label="{ApprovalRoute||STANDARD\lFAST_TRACK\lFINANCE_REVIEW\lDIRECTOR_REVIEW\lSECURITY_REVIEW\l}", fillcolor="#F7FBFF", color="#2F5597"];
+a [label="{ApprovalRouter|+ FINANCE_LIMIT : long = 500000\l+ URGENT_MEDIUM_LIMIT_PERCENT : int = 20\l|+ route(long, boolean, RiskLevel, boolean) : ApprovalRoute\l- validateInput(long, RiskLevel) : void\l- requiresSecurityReview(boolean) : boolean\l- requiresDirectorReview(RiskLevel) : boolean\l- requiresFinanceReview(long) : boolean\l- isEligibleForFastTrack(long, boolean, RiskLevel) : boolean\l+ main(String[]) : void\l}", fillcolor="#F7FBFF", color="#2F5597"];
+risk [label="{RiskLevel||LOW\lMEDIUM\lHIGH\l}", fillcolor="#F7FBFF", color="#2F5597"];
+sc [label="{SelfCheck||+ main(String[]) : void\l}", fillcolor="#F7FBFF", color="#2F5597"];
+a -> r [label="returns", style=dashed, arrowhead=open];
+a -> risk [label="uses", style=dashed, arrowhead=open];
+sc -> a [label="tests", style=dashed, arrowhead=open];
+}
